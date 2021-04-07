@@ -27,12 +27,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.029">
+        app:layout_constraintVertical_bias="0.075">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,5 +49,15 @@
                 android:text="" />
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="72dp"
+        android:layout_marginBottom="84dp"
+        android:text="Retrieve sensors"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
