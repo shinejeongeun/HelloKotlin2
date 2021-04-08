@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
@@ -12,6 +14,7 @@ public class LocProviderListActivity extends AppCompatActivity {
     TextView mTextView;
     LocationManager lm;
     List<String> locProvlist;
+    Button mbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,17 +22,23 @@ public class LocProviderListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mTextView = findViewById(R.id.txtOutput);
-        lm = (LocationManager) getSystemService(LOCATION_SERVICE);
+        mbutton = findViewById(R.id.button);
+        mbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                lm = (LocationManager) getSystemService(LOCATION_SERVICE);
 
-        locProvlist = lm.getAllProviders();
+                locProvlist = lm.getAllProviders();
 
-        String s = "";
-        for (int i = 0; i < locProvlist.size(); i++) {
-            s += "Loc.Provider:" + locProvlist.get(i) + "\n"
-             +"status: " + lm.isProviderEnabled(locProvlist.get(i)) + "\n\n";
-        }
-        mTextView.setText(s);
+                String s = "";
+                for (int i = 0; i < locProvlist.size(); i++) {
+                    s += "Loc.Provider:" + locProvlist.get(i) + "\n"
+                            +"status: " + lm.isProviderEnabled(locProvlist.get(i)) + "\n\n";
+                }
+                mTextView.setText(s);
 
+            }
+        });
 
     }
 }
