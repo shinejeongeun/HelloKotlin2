@@ -27,16 +27,14 @@ public class LocProviderListActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 lm = (LocationManager) getSystemService(LOCATION_SERVICE);
-
                 locProvlist = lm.getAllProviders();
-
                 String s = "";
-                for (int i = 0; i < locProvlist.size(); i++) {
-                    s += "Loc.Provider:" + locProvlist.get(i) + "\n"
-                            +"status: " + lm.isProviderEnabled(locProvlist.get(i)) + "\n\n";
+                for(String str : locProvlist){
+                    s += "Loc. Provider:" + str + "\n" +
+                            "Statue:" + lm.isProviderEnabled(str) + "\n\n";
+
                 }
                 mTextView.setText(s);
-
             }
         });
 
