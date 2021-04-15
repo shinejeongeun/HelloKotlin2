@@ -23,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        txtAzimuth = findViewById(R.id.txtAzimuth);
-        txtPitch = findViewById(R.id.txtPitch);
-        txtRoll = findViewById(R.id.txtRoll);
+     //   txtAzimuth = findViewById(R.id.txtAzimuth);
+    //    txtPitch = findViewById(R.id.txtPitch);
+    //    txtRoll = findViewById(R.id.txtRoll);
 
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 
@@ -105,10 +105,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        sensorManager.unregisterListener(listener, magSensor);
-        sensorManager.unregisterListener(listener, accSensor);
-
-
+        sensorManager.unregisterListener(listener);
     }
 
     @Override
