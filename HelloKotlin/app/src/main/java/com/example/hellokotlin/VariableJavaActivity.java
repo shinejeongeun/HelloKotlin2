@@ -11,32 +11,40 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 public class VariableJavaActivity extends AppCompatActivity {
-    int ClickCount;
-    TextView txtActivityStartTime, txtCountBtnClicks;
+
+    int clickCount;
+    long startTime = System.currentTimeMillis();
+    TextView txtActivityStartTime, txtContBtnClicks, txtElapsedTime;;
     Button btnClickMe;
-    final long startTime = System.currentTimeMillis();
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_variable);
 
-        txtActivityStartTime = findViewById(R.id.txtActivityStartTime);
-        txtCountBtnClicks = findViewById(R.id.txtCountBtnClicks);
-        btnClickMe = findViewById(R.id.btnClickMe);
+        txtActivityStartTime=findViewById(R.id.txtActivityStartTime);
+        txtContBtnClicks=findViewById(R.id.txtCountBtnClicks);
+        btnClickMe=findViewById(R.id.btnClickMe);
+        txtElapsedTime =findViewById(R.id.txtElapsedTime);
 
-        ClickCount = 0;
-        //startTime = System.currentTimeMillis();
+        clickCount =0;
+        //    startTime = System.currentTimeMillis();
 
         btnClickMe.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                ClickCount++;
-                txtCountBtnClicks.setText("Button Clicks = " + ClickCount);
+            public void onClick(View v) {
+                clickCount++;
+                txtContBtnClicks.setText("Button clicks = " + clickCount);
+                long elapsedSeconds = ((System.currentTimeMillis() - startTime)/1000);
+                txtElapsedTime.setText(elapsedSeconds+"Seconds Elapsed");
+
             }
         });
         String sTimeStamp = new SimpleDateFormat("HH:mm:ss", Locale.KOREA).format(startTime);
         txtActivityStartTime.setText("Activity start time = " + sTimeStamp);
     }
+
+
 }
