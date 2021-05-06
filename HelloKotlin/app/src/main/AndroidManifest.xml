@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HelloKotlin"
-        android:name=".MainActivity">
+        android:name=".MainApplication">
         <activity
             android:name=".FlowControlKotlinActivity"
-            android:label="FlowControlKotlinActivity"/>
+            android:label="FlowControlKotlinActivity"></activity>
         <activity
             android:name=".FlowControlJavaActivity"
             android:label="FlowControlJavaActivity" />
