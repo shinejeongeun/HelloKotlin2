@@ -27,19 +27,22 @@ public class FlowControlJavaActivity extends AppCompatActivity {
                 int number = Integer.parseInt(fieldNumber.getText().toString());
 
                 if(number % 2 == 0) {
-                    Toast.makeText(getApplicationContext(), ""+ number +"은(는) 2의 배수", Toast.LENGTH_SHORT).show();
+                //    Toast.makeText(getApplicationContext(), ""+ number +"은(는) 2의 배수", Toast.LENGTH_SHORT).show();
+                    ToastUtilJava.toast_short(number + "은(는) 2의 배수");
 
                 }
                 else if(number % 3 == 0) {
-                    Toast.makeText(getApplicationContext(), "" + number +"은(는) 3의 배수", Toast.LENGTH_SHORT).show();
+                //    Toast.makeText(getApplicationContext(), "" + number +"은(는) 3의 배수", Toast.LENGTH_SHORT).show();
+                    ToastUtilJava . toast_short (number +  " 은 (는) 3의 배수 " );
                 }
                 else {
-                    Toast.makeText(getApplicationContext(), "" + number + "은(는) else", Toast.LENGTH_LONG).show();
+                //    Toast.makeText(getApplicationContext(), "" + number + "은(는) else", Toast.LENGTH_LONG).show();
+                    ToastUtilJava . toast_long (number +  " 은 (는) else " );
                 }
 
                 switch (number){
-                    case 4 :
-                    case 9 : btnLD.setText("실행 for" + number); break;
+                    case 4 : btnLD.setText("실행 for 4"); break;
+                    case 9 : btnLD.setText("실행 for 9"); break;
                     default: btnLD.setText("실행 for else"); break;
                 }
             }
